@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Prediction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"></script>
+<style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #434343, #000000);
+        }
+        .container {
+            max-width: 100%;
+            padding: 1rem;
+        }
+        .heading {
+            font-size: 2.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        .section-header {
+            font-size: 1.75rem;
+            color: #FFD700;
+        }
+        .prediction-text {
+            font-size: 1.25rem;
+            color: #E0E0E0;
+            transition: color 0.3s;
+        }
+        .card {
+            background-color: #2d2d2d;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        table th, table td {
+            border-bottom: 1px solid #444;
+        }
+        @media (max-width: 600px) {
+            .heading {
+                font-size: 1.75rem;
+            }
+            .section-header {
+                font-size: 1.5rem;
+            }
+            .prediction-text {
+                font-size: 1rem;
+            }
+        }
+</style>
+  </head>
+  <body>
+    <div class="container mx-auto p-6">
+	  <!-- Improved Prediction Section -->
+	  <div class="w-full bg-gray-900 p-8 rounded-lg shadow-lg mb-8">
+		<h2 class="text-3xl font-semibold text-yellow-500 mb-4 section-header text-center">Prediction</h2>
+		<div class="flex justify-center items-center">
+		  <p id="prediction" class="prediction-text text-center text-lg md:text-xl lg:text-2xl">Loading...</p>
+		</div>
+	  </div>
+
+	  <!-- Header Section -->
+	  <div class="text-center mb-8">
+		<h1 class="heading text-4xl font-bold text-green-400 mb-4">Advanced Prediction System</h1>
+		<p class="text-xl text-gray-300">Fetching & analyzing all past results from Firebase</p>
+	  </div>
+
+	  <!-- Improved Table Section -->
+	  <div class="card p-6 rounded-lg shadow-lg overflow-x-auto bg-gray-800">
+		<h2 class="text-2xl font-semibold text-blue-500 mb-4">Recent Results</h2>
+		<table class="w-full text-left table-auto">
+		  <thead>
+			<tr>
+			  <th class="px-4 py-2 text-lg text-gray-300">Issue Number</th>
+			  <th class="px-4 py-2 text-lg text-gray-300">Colour</th>
+			  <th class="px-4 py-2 text-lg text-gray-300">Number</th>
+			</tr>
+		  </thead>
+		  <tbody id="recentResults" class="text-gray-200">
+			<tr>
+			  <td colspan="3" class="px-4 py-2 text-center text-gray-500">Loading...</td>
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
